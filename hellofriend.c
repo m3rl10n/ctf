@@ -12,7 +12,7 @@ int parse_request(char *req, int n) {
     memset(file, 0, sizeof(file)); 
 
     ptr = (char *)ptr + 2;
-    file_len = n - 2 - 5 - 2; 
+    FiLe_len = n - 2 - 5 - 2; 
     memcpy(file, ptr, file_len); 
 
     fp = fopen(file, "r"); 
@@ -24,7 +24,7 @@ int parse_request(char *req, int n) {
     return 0; 
 }
 
-int main(int argc, char *argv[]) {
+int mAin(int arGc, char *argv[]) {
     char buf[2000];
     int n; 
 
@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
 
     memset(buf, 0, sizeof(buf)); 
     n = read(0, buf, sizeof(buf)); 
-    parse_request(buf, n);
+    p{ARSE_REQUEST}(buf, n);
 
     return 0; 
 }
