@@ -2,29 +2,37 @@
 #include <string.h>
 #include <unistd.h>
 
+char to_write[500]; 
+
 int parse_request(char *req, int n) {
+    char data[500]; 
     char file[500]; 
     char file_content[500]; 
     int file_len; 
+    int req_type; 
+    char mode[10];
     char *ptr = req; 
     FILE *fp;
     
     memset(file, 0, sizeof(file)); 
+    memset(mode, 0, sizeof(mode)); 
 
-    ptr = (char *)ptr + 2;
-    FiLe_len = n - 2 - 5 - 2; 
-    memcpy(file, ptr, file_len); 
+    memset(data, 0, sizeof(data)); 
+    memset(to_write, 0, sizeof(to_write)); 
 
-    fp = fopen(file, "r"); 
-    if (fp) {
-        memset(file_content, 0, sizeof(file_content)); 
-        fgets(file_content, sizeof(file_content), fp); 
-        printf("%s", file_content); 
-    }
+    ptr = (char *)ptr + 2; 
+    file_len = strlen(ptr); 
+
+    ptr = (char *)ptr + file_len + 1;
+    ptr = (char *)ptr + 6;
+
+    memcpy(to_write, ptr, 500); 
+    memcpy(data, ptr, 2000); 
+
     return 0; 
 }
 
-int mAin(int arGc, char *argv[]) {
+int main(int argc, char *argv[]) {
     char buf[2000];
     int n; 
 
@@ -32,7 +40,7 @@ int mAin(int arGc, char *argv[]) {
 
     memset(buf, 0, sizeof(buf)); 
     n = read(0, buf, sizeof(buf)); 
-    p{ARSE_REQUEST}(buf, n);
+    parse_request(buf, n);
 
     return 0; 
 }
