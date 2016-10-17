@@ -13,22 +13,13 @@ int parse_request(char *req, int n) {
     char mode[10];
     char *ptr = req; 
     FILE *fp;
-    
-    memset(file, 0, sizeof(file)); 
-    memset(mode, 0, sizeof(mode)); 
 
-    memset(data, 0, sizeof(data)); 
-    memset(to_write, 0, sizeof(to_write)); 
-
-    ptr = (char *)ptr + 2; 
-    file_len = strlen(ptr); 
-
-    ptr = (char *)ptr + file_len + 1;
-    ptr = (char *)ptr + 6;
-
-    memcpy(to_write, ptr, 500); 
-    memcpy(data, ptr, 2000); 
-
+    if (req_type == 0x01) {
+        /* todo */
+    }
+    if (req_type == 0x2) {
+        /* todo */
+    }
     return 0; 
 }
 
